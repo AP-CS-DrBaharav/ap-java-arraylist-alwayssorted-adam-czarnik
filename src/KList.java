@@ -31,4 +31,54 @@ Removing    :  { };
  * 
  */
 
+import java.util.ArrayList;
+
+public class KList {
+    
+    private ArrayList<Integer> A;
+    
+    public KList(int[] in) {
+        A = new ArrayList<Integer>(in.length);
+        for (int i=0; i<in.length; ++i) {
+            A.add(in[i]);
+        }
+    }
+    public KList() {
+        A = new ArrayList<Integer>();
+    }
+    
+    public void add(int n) {
+        int ii=0;
+        while (ii<A.size()) {
+            if (n<A.get(ii)) {
+                A.add(ii, n);
+                break;
+            }
+            ii++;
+        }
+        if (ii==A.size()) {
+            A.add(ii, n);
+        }
+    }
+    
+    public int remove(int n) {
+        if (n >= A.size())
+            return 0;
+        
+        int out = A.get(n);
+        A.remove(n);
+        return out;
+    }
+    
+    public String toString() {
+//        String out = "";
+//        if (A.size() == 0) return "{ }";
+//        for (int i=1; i<A.size()-1; ++i)
+//            out = out + ", " + A.get(i);
+//        return "{ " + A.get(0) + out + A.get(A.size()) + " }";
+        return "" + A;
+    }
+    
+}
+
 
